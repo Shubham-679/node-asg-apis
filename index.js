@@ -4,7 +4,9 @@ const app = express();
 const users = require('./routes/user');
 const albums = require('./routes/album');
 const photos = require('./routes/photo')
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
 app.use('/users', users);
 app.use('/albums', albums);

@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
 const Album = require('../models/albumModel');
-const User = require('../models/userModel');
 
 //  get all the albums
 
@@ -24,12 +23,12 @@ router.get('/:id' , async (req, res) => {
 
 router.post('/', async (req, res) => {
 
-    const user =  await User.findById(req.body.userId)
-    if (!user) return res.status(404).send("Invalid User!");
+    // const user =  await User.findById(req.body.userId)
+    // if (!user) return res.status(404).send("Invalid User!");
 
     const album = new Album({
         title : req.body.title,
-        user : user._id
+        // user : user._id
     })
     const savedAlbum = await album.save();
     res.send(savedAlbum);

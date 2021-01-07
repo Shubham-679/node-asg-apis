@@ -23,12 +23,12 @@ router.get('/:id' , async (req, res) => {
 // save photos
 
 router.post('/', async (req, res) => {
-    const album = await Album.findById(req.body.albumId)
-    if (!album) return res.status(404).send("Invalid Album!");
+    // const album = await Album.findById(req.body.albumId)
+    // if (!album) return res.status(404).send("Invalid Album!");
 
     const photo = new Photo({
         url: req.body.url,
-        album: album._id
+        // album: album._id
     })
     const savedPhoto = await photo.save();
     res.send(savedPhoto);
